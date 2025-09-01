@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatterSense - Monitoraggio Intelligente per il Tuo Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #000428 0%, #004e92 100%);
+        }
+        .dashboard-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        .sensor-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.7; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-900">
+    <!-- Navbar -->
+    <nav class="bg-black bg-opacity-90 backdrop-filter backdrop-blur-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-wave-square text-white text-2xl mr-2"></i>
+                        <span class="text-white font-semibold text-xl">MatterSense</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#features" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Caratteristiche</a>
+                        <a href="#dashboard" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+                        <a href="#sensors" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sensori</a>
+                        <a href="#business" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Per il Business</a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <a href="#contact" class="ml-8 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition duration-300">
+                        Richiedi Demo
+                    </a>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black bg-opacity-95">
+                <a href="#features" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Caratteristiche</a>
+                <a href="#dashboard" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
+                <a href="#sensors" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sensori</a>
+                <a href="#business" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Per il Business</a>
+                <a href="#contact" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Richiedi Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white pt-24 pb-20 md:pt-32 md:pb-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+                <div class="fade-in">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        Monitoraggio intelligente.<br>Decisioni migliori.
+                    </h1>
+                    <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-2xl">
+                        MatterSense trasforma i dati in intuizioni strategiche per ottimizzare i tuoi spazi e aumentare la redditività.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition duration-300 text-center">
+                            Richiedi una demo
+                        </a>
+                        <a href="#features" class="border border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-blue-900 transition duration-300 text-center">
+                            Scopri di più <i class="fas fa-arrow-down ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-12 lg:mt-0 fade-in" style="animation-delay: 0.3s;">
+                    <div class="relative">
+                        <div class="absolute -top-8 -left-8 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+                        <div class="absolute -bottom-8 -right-8 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                                 alt="MatterSense Dashboard" 
+                                 class="rounded-2xl shadow-2xl border-8 border-white border-opacity-20">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Monitoraggio completo. Analisi avanzate.</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    MatterSense offre una suite completa di sensori e strumenti analitici per ottimizzare ogni aspetto del tuo ambiente.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="dashboard-card bg-gray-50 p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Flusso Persone</h3>
+                    <p class="text-gray-600">
+                        Analisi in tempo reale del movimento delle persone per ottimizzare layout, personale e sicurezza.
+                    </p>
+                </div>
+
+                <div class="dashboard-card bg-gray-50 p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-wind text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Qualità dell'Aria</h3>
+                    <p class="text-gray-600">
+                        Monitoraggio di CO2, radon e altri parametri per garantire ambienti salubri e conformi alle normative.
+                    </p>
+                </div>
+
+                <div class="dashboard-card bg-gray-50 p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-bolt text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Consumo Energetico</h3>
+                    <p class="text-gray-600">
+                        Rilevazione degli sprechi energetici con suggerimenti per ridurre i costi e migliorare l'efficienza.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview -->
+    <section id="dashboard" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Dashboard Potente. Intuitiva.</h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        La nostra dashboard unifica tutti i dati in un'interfaccia chiara e personalizzabile, con alert intelligenti e report automatici.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                            </div>
+                            <p class="ml-3 text-gray-700 font-medium">Visualizzazione dati in tempo reale e storici</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                            </div>
+                            <p class="ml-3 text-gray-700 font-medium">Alert personalizzabili per anomalie e soglie critiche</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                            </div>
+                            <p class="ml-3 text-gray-700 font-medium">Integrazione con i principali sistemi di building automation</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                            </div>
+                            <p class="ml-3 text-gray-700 font-medium">Report automatici e esportazione dati in vari formati</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative">
+                    <div class="relative z-10 rounded-xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="MatterSense Dashboard" 
+                             class="w-full h-auto">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 z-0"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sensors Section -->
+    <section id="sensors" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Tecnologia avanzata. Installazione semplice.</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    I nostri sensori wireless si integrano perfettamente in qualsiasi ambiente, con una durata della batteria fino a 5 anni.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="dashboard-card bg-gray-50 p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <span class="sensor-dot bg-blue-500"></span>
+                        <h3 class="font-bold">Presenza Persone</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        Rilevazione presenza e movimento con tecnologia a infrarossi passivi (PIR) e radar a onde millimetriche.
+                    </p>
+                </div>
+
+                <div class="dashboard-card bg-gray-50 p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <span class="sensor-dot bg-green-500"></span>
+                        <h3 class="font-bold">Qualità Aria</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        Sensori precisi per CO2, radon, VOC, PM2.5 e PM10 con calibrazione automatica e compensazione temperatura/umidità.
+                    </p>
+                </div>
+
+                <div class="dashboard-card bg-gray-50 p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <span class="sensor-dot bg-purple-500"></span>
+                        <h3 class="font-bold">Ambientali</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        Temperatura (±0.3°C), umidità (±2%), pressione atmosferica, illuminamento e rumore ambientale.
+                    </p>
+                </div>
+
+                <div class="dashboard-card bg-gray-50 p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <span class="sensor-dot bg-yellow-500"></span>
+                        <h3 class="font-bold">Energia</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        Monitoraggio consumi elettrici con CT clamp non invasivi, rilevazione standby e picchi di potenza.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <div class="inline-flex items-center px-6 py-3 border border-gray-300 rounded-full text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition duration-300">
+                    <i class="fas fa-list mr-2"></i> Vedi l'elenco completo dei sensori
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Benefits -->
+    <section id="business" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div class="mb-12 lg:mb-0 order-2 lg:order-1">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Business Optimization" 
+                         class="rounded-xl shadow-xl">
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Trasforma i dati in profitto</h2>
+                    <p class="text-lg text-gray-300 mb-8">
+                        MatterSense aiuta le aziende a ridurre i costi, migliorare l'efficienza e aumentare la soddisfazione dei clienti attraverso dati concreti e azionabili.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold">1</span>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">Ottimizzazione spazi</h3>
+                                <p class="text-gray-300">
+                                    Riduci gli sprechi di spazio fino al 30% analizzando l'effettiva utilizzazione degli ambienti.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold">2</span>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">Risparmio energetico</h3>
+                                <p class="text-gray-300">
+                                    Riduci i costi energetici fino al 40% con il controllo intelligente di HVAC e illuminazione basato sull'effettiva occupazione.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold">3</span>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">Sicurezza e conformità</h3>
+                                <p class="text-gray-300">
+                                    Monitoraggio automatico dei parametri ambientali per garantire la conformità alle normative e la sicurezza degli occupanti.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">MatterSense in azione</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Scopri come diverse industrie stanno beneficiando della nostra piattaforma.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="dashboard-card border border-gray-200 rounded-xl overflow-hidden">
+                    <div class="h-48 bg-blue-50 flex items-center justify-center">
+                        <i class="fas fa-store text-blue-600 text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Retail</h3>
+                        <p class="text-gray-600 mb-4">
+                            Ottimizza il layout del negozio, gestisci le code e migliora l'esperienza cliente analizzando i modelli di traffico.
+                        </p>
+                        <div class="text-blue-600 font-medium flex items-center">
+                            Scopri di più <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card border border-gray-200 rounded-xl overflow-hidden">
+                    <div class="h-48 bg-green-50 flex items-center justify-center">
+                        <i class="fas fa-building text-green-600 text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Uffici</h3>
+                        <p class="text-gray-600 mb-4">
+                            Implementa lo smart working in modo efficiente e riduci i costi energetici con il monitoraggio dell'utilizzo degli spazi.
+                        </p>
+                        <div class="text-green-600 font-medium flex items-center">
+                            Scopri di più <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card border border-gray-200 rounded-xl overflow-hidden">
+                    <div class="h-48 bg-purple-50 flex items-center justify-center">
+                        <i class="fas fa-hospital text-purple-600 text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Sanità</h3>
+                        <p class="text-gray-600 mb-4">
+                            Garantisci ambienti sicuri e conformi monitorando qualità dell'aria, flussi di persone e condizioni ambientali.
+                        </p>
+                        <div class="text-purple-600 font-medium flex items-center">
+                            Scopri di più <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-20 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Pronto a trasformare i tuoi dati in vantaggio competitivo?</h2>
+            <p class="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
+                Richiedi una demo personalizzata e scopri come MatterSense può aiutare la tua azienda a crescere.
+            </p>
+            
+            <div class="max-w-md mx-auto">
+                <form class="space-y-4">
+                    <div>
+                        <input type="text" placeholder="Nome" class="w-full px-5 py-3 rounded-full bg-white bg-opacity-10 border border-white border-opacity-20 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent placeholder-blue-200">
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Email" class="w-full px-5 py-3 rounded-full bg-white bg-opacity-10 border border-white border-opacity-20 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent placeholder-blue-200">
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Azienda" class="w-full px-5 py-3 rounded-full bg-white bg-opacity-10 border border-white border-opacity-20 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent placeholder-blue-200">
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full bg-white text-blue-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300">
+                            Richiedi Demo <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-white text-sm font-semibold mb-4">MatterSense</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-white transition">Chi siamo</a></li>
+                        <li><a href="#" class="hover:text-white transition">Lavora con noi</a></li>
+                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition">Eventi</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-semibold mb-4">Prodotto</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-white transition">Funzionalità</a></li>
+                        <li><a href="#" class="hover:text-white transition">Prezzi</a></li>
+                        <li><a href="#" class="hover:text-white transition">Integrazioni</a></li>
+                        <li><a href="#" class="hover:text-white transition">Aggiornamenti</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-semibold mb-4">Supporto</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-white transition">Documentazione</a></li>
+                        <li><a href="#" class="hover:text-white transition">Guide</a></li>
+                        <li><a href="#" class="hover:text-white transition">API</a></li>
+                        <li><a href="#" class="hover:text-white transition">Contatti</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-white transition">Privacy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Termini</a></li>
+                        <li><a href="#" class="hover:text-white transition">Sicurezza</a></li>
+                        <li><a href="#" class="hover:text-white transition">Cookie</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i class="fas fa-wave-square text-white text-xl mr-2"></i>
+                    <span class="text-white font-semibold">MatterSense</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 text-sm text-gray-500 text-center">
+                &copy; 2023 MatterSense. Tutti i diritti riservati.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Add fade-in animation when elements come into view
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(element => {
+            fadeInObserver.observe(element);
+        });
+    </script>
+</body>
+</html>
