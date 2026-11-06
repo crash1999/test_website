@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RadarCare™ – Monitoraggio continuo e senza contatto dei parametri vitali</title>
+<meta name="description" content="RadarCare™ rileva frequenza cardiaca, frequenza respiratoria e movimenti del paziente senza contatto, giorno e notte. Dispositivo medico CE di Classe I. Informazione riservata agli operatori sanitari.">
+<meta name="theme-color" content="#F5F5F7">
+<meta property="og:type" content="website">
+<meta property="og:title" content="RadarCare™ – Ogni respiro. Ogni battito. Ogni movimento.">
+<meta property="og:description" content="Il monitoraggio continuo e senza contatto di ogni posto letto, giorno e notte.">
+<meta property="og:image" content="https://radarcare.it/assets/img/og.jpg">
+<meta property="og:locale" content="it_IT">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/Inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
+</head>
+<body>
+<a class="skip" href="#contenuto">Vai al contenuto</a>
+
+<header class="hdr">
+<div class="notice" role="note">Informazione riservata agli operatori sanitari<span class="hide-m"> e alle strutture sanitarie</span>.</div>
+<div class="nav" id="nav">
+  <a class="nav__brand" href="#top" aria-label="RadarCare, torna all'inizio"><img src="assets/img/radarcare-logo.svg" alt="RadarCare" width="132" height="39"></a>
+  <nav class="nav__links" aria-label="Sezioni">
+    <a href="#parametri">Cosa rileva</a>
+    <a href="#vantaggi">Vantaggi</a>
+    <a href="#sistema">Come funziona</a>
+    <a href="#installazione">Installazione</a>
+    <a href="#area-clienti">Area clienti</a>
+  </nav>
+  <a class="btn btn--sm" href="#contatti">Richiedi un preventivo</a>
+</div>
+</header>
+
+<svg class="links" id="links" aria-hidden="true"></svg>
+<canvas id="scene" aria-hidden="true"></canvas>
+
+<main id="contenuto">
+
+<!-- HERO -->
+<section class="story" id="top" data-len="2.1">
+  <div class="sticky">
+    <div class="hero__copy" data-in="-1" data-out="0.34">
+      <p class="eyebrow">Dispositivo medico CE · Classe I</p>
+      <h1 class="hero__title">
+        <span class="ln">Ogni respiro.</span>
+        <span class="ln">Ogni battito.</span>
+        <span class="ln ln--blue">Ogni movimento.</span>
+      </h1>
+      <p class="lead">Il monitoraggio continuo e senza contatto di ogni posto letto, giorno e notte.</p>
+      <div class="hero__cta">
+        <a class="btn" href="#contatti">Richiedi un preventivo</a>
+        <a class="btn btn--ghost" href="#parametri">Scopri RadarCare</a>
+      </div>
+    </div>
+    <img class="poster" src="assets/img/sensor-poster.webp" alt="Il sensore RadarCare, un piccolo dispositivo grigio chiaro da parete" width="900" height="760">
+    <div class="scroll-hint" data-in="-1" data-out="0.12" aria-hidden="true"><span></span></div>
+
+    <div class="hero__b" data-in="0.52" data-out="2">
+      <h2 class="h2">Il monitoraggio<br>che non si vede.</h2>
+      <p class="body">RadarCare è un piccolo sensore che si applica a parete, sopra la testiera del letto. Rileva in modo continuo frequenza cardiaca, frequenza respiratoria e movimenti del paziente, <strong>senza contatto, senza telecamere e senza nulla da indossare</strong>. I dati arrivano da soli nella cartella clinica elettronica.</p>
+      <p class="body muted">Merito della tecnologia radar a onde millimetriche: affidabilità da dispositivo medico certificato, in un oggetto discreto che il paziente quasi non nota.</p>
+      <div class="live" data-in="0.62" data-out="2">
+        <div class="live__head"><span class="dot"></span>Letto 4 · in tempo reale<span class="live__ex">dati di esempio</span></div>
+        <div class="live__row">
+          <div><span class="live__k">Frequenza cardiaca</span><span class="live__v"><b data-live="hr">72</b> bpm</span></div>
+          <canvas class="wave" data-wave="hr" width="240" height="56"></canvas>
+        </div>
+        <div class="live__row">
+          <div><span class="live__k">Frequenza respiratoria</span><span class="live__v"><b data-live="rr">16</b> atti/min</span></div>
+          <canvas class="wave" data-wave="rr" width="240" height="56"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMERI -->
+<section class="stats" aria-label="RadarCare in numeri">
+  <div class="stat reveal"><b>24/7</b><span>Monitoraggio continuo, giorno e notte</span></div>
+  <div class="stat reveal"><b>0</b><span>Contatti con il paziente e dispositivi da indossare</span></div>
+  <div class="stat reveal"><b>8</b><span>Posti letto collegati a un solo gateway</span></div>
+</section>
+
+<!-- PARAMETRI -->
+<section class="story" id="parametri" data-len="3.0">
+  <div class="sticky">
+    <div class="params">
+      <p class="eyebrow" data-in="-1" data-out="2">Cosa rileva</p>
+      <h2 class="h2" data-in="-1" data-out="2">Quattro parametri.<br>Nessun contatto.</h2>
+      <ol class="params__list">
+        <li class="param" data-step="0">
+          <span class="param__n">01</span>
+          <div><h3 class="h3">Frequenza cardiaca</h3><p class="body">Rilevata in modo continuo, senza elettrodi né sensori sul corpo.</p></div>
+          <canvas class="wave" data-wave="hr" width="320" height="64"></canvas>
+        </li>
+        <li class="param" data-step="1">
+          <span class="param__n">02</span>
+          <div><h3 class="h3">Frequenza respiratoria</h3><p class="body">Ogni atto respiratorio, monitorato anche durante il sonno.</p></div>
+          <canvas class="wave" data-wave="rr" width="320" height="64"></canvas>
+        </li>
+        <li class="param" data-step="2">
+          <span class="param__n">03</span>
+          <div><h3 class="h3">Uscita e rientro dal letto</h3><p class="body">Segnala quando il paziente lascia il letto e quando vi ritorna.</p></div>
+          <canvas class="wave" data-wave="bed" width="320" height="64"></canvas>
+        </li>
+        <li class="param" data-step="3">
+          <span class="param__n">04</span>
+          <div><h3 class="h3">Agitazione e movimenti bruschi</h3><p class="body">Riconosce i momenti di irrequietezza, a ogni ora.</p></div>
+          <canvas class="wave" data-wave="mov" width="320" height="64"></canvas>
+        </li>
+      </ol>
+      <p class="params__foot" data-in="-1" data-out="2"><span class="dot"></span>Avvisi in tempo reale, con soglie configurabili per ogni paziente.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VANTAGGI -->
+<section class="benefits" id="vantaggi">
+  <div class="benefits__head reveal">
+    <p class="eyebrow">Vantaggi per la struttura</p>
+    <h2 class="h2">Niente da indossare.<br>Niente da ricordare.</h2>
+    <p class="lead lead--sm">Il monitoraggio avviene in automatico. Il personale dedica meno tempo alla raccolta dei dati e ha più sicurezza, soprattutto di notte.</p>
+  </div>
+  <div class="cards">
+    <article class="card reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg><h3 class="h3">Monitoraggio automatico</h3><p class="body">I parametri vengono rilevati e registrati da soli nella cartella clinica. Meno rilevazioni manuali, meno lavoro per il personale.</p></article>
+    <article class="card reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg><h3 class="h3">Più sicurezza, anche di notte</h3><p class="body">Un monitoraggio continuo, 24 ore su 24, con avvisi in tempo reale e soglie configurabili per ogni paziente.</p></article>
+    <article class="card reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><h3 class="h3">Il paziente non può interromperlo</h3><p class="body">Non c'è nulla da indossare o da staccare: finché il paziente è a letto, il monitoraggio continua.</p></article>
+    <article class="card reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><h3 class="h3">Non invasivo</h3><p class="body">Nessun contatto e nessun cavo sul paziente. Funziona al buio e attraverso coperte e lenzuola, senza disturbare il riposo.</p></article>
+    <article class="card reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68M6.61 6.61A13.53 13.53 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61M2 2l20 20"/></svg><h3 class="h3">Nessuna telecamera</h3><p class="body">Solo parametri, nessuna immagine. La riservatezza del paziente è rispettata per progetto.</p></article>
+    <article class="card reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg><h3 class="h3">Uno storico che parla chiaro</h3><p class="body">Andamento dei parametri e dei movimenti sempre consultabile: un supporto concreto nel dialogo con i familiari, soprattutto con i pazienti più irrequieti.</p></article>
+  </div>
+</section>
+
+<!-- SISTEMA -->
+<section class="story" id="sistema" data-len="3.2">
+  <div class="sticky">
+    <div class="sys__head">
+      <p class="eyebrow" data-in="-1" data-out="2">Come funziona</p>
+      <h2 class="h2" data-in="-1" data-out="2">Dal letto alla cartella clinica.<br>In automatico.</h2>
+    </div>
+    <ol class="sys__steps">
+      <li data-sys="0"><b>Sensore</b><span>A parete sopra la testiera, rileva parametri vitali e movimenti senza contatto. Uno per posto letto.</span></li>
+      <li data-sys="1"><b>Gateway</b><span>Collegamento wireless stabile, anche attraverso le pareti. Un gateway serve fino a 8 posti letto.</span></li>
+      <li data-sys="2"><b>Cartella clinica</b><span>I dati confluiscono nella cartella clinica elettronica, consultabile via webapp da PC, tablet e smartphone.</span></li>
+    </ol>
+    <div class="ehr" id="ehr" aria-hidden="true">
+      <div class="ehr__bar"><i></i><i></i><i></i><span>Cartella clinica elettronica</span></div>
+      <div class="ehr__body">
+        <div class="ehr__row"><span>Letto 1</span><em>72 bpm · 15 atti/min</em><s class="ok"></s></div>
+        <div class="ehr__row"><span>Letto 2</span><em>64 bpm · 13 atti/min</em><s class="ok"></s></div>
+        <div class="ehr__row"><span>Letto 3</span><em>Fuori dal letto</em><s class="warn"></s></div>
+        <div class="ehr__row"><span>Letto 4</span><em>80 bpm · 18 atti/min</em><s class="ok"></s></div>
+        <div class="ehr__row"><span>Letto 5</span><em>69 bpm · 16 atti/min</em><s class="ok"></s></div>
+      </div>
+      <div class="ehr__devices"><span>PC</span><span>Tablet</span><span>Smartphone</span></div>
+    </div>
+    <p class="sys__tag" id="tagGw">Ethernet · USB-C, PoE opzionale</p>
+  </div>
+</section>
+
+<!-- REPARTO -->
+<section class="ward" id="reparto">
+  <div class="ward__head reveal">
+    <p class="eyebrow">La webapp</p>
+    <h2 class="h2">Il reparto, a colpo d'occhio.</h2>
+    <p class="lead lead--sm">Ogni posto letto ha la sua scheda: parametri in tempo reale, stato e avvisi. Su PC, tablet e smartphone.</p>
+  </div>
+  <div class="dash reveal" id="dash" aria-label="Interfaccia illustrativa della webapp con dati di esempio">
+    <div class="dash__top"><b>Reparto · Piano 2</b><span><span class="dot"></span>8 posti letto collegati</span></div>
+    <div class="dash__grid" id="dashGrid"></div>
+  </div>
+  <p class="fine">Interfaccia illustrativa con dati di esempio.</p>
+  <div class="integr reveal">
+    <h3 class="h3">Integrazione aperta</h3>
+    <p class="body">La cartella clinica elettronica è già integrata. Per impianti su misura, RadarCare si integra anche con i sistemi di terze parti già in uso nella struttura.</p>
+  </div>
+</section>
+
+<!-- INSTALLAZIONE -->
+<section class="story" id="installazione" data-len="2.6">
+  <div class="sticky">
+    <div class="inst">
+      <p class="eyebrow" data-in="-1" data-out="2">Installazione</p>
+      <h2 class="h2" data-in="-1" data-out="2">Si installa<br>in pochi passi.</h2>
+      <p class="lead lead--sm" data-in="-1" data-out="2">Plug and play: nessuna configurazione complessa, nessun intervento sul paziente.</p>
+      <ol class="inst__steps">
+        <li data-inst="0"><span class="param__n">1</span><div><h3 class="h3">Si applica a parete</h3><p class="body">Sopra la testiera del letto, dove rileva al meglio i parametri del paziente.</p></div></li>
+        <li data-inst="1"><span class="param__n">2</span><div><h3 class="h3">Si collega alla corrente</h3><p class="body">Basta una presa elettrica vicino al letto. L'alimentatore è incluso.</p></div></li>
+        <li data-inst="2"><span class="param__n">3</span><div><h3 class="h3">Si configura da solo</h3><p class="body">Si collega in wireless al gateway e si calibra automaticamente.</p></div></li>
+      </ol>
+    </div>
+    <div class="calib" id="calib" aria-hidden="true"><span class="dot"></span>Collegato · calibrazione completata</div>
+  </div>
+</section>
+
+<!-- INCLUSO + SINTESI -->
+<section class="specs">
+  <div class="included reveal">
+    <p class="eyebrow">Sempre incluso</p>
+    <h2 class="h2">Tutto incluso,<br>fin dal primo giorno.</h2>
+    <ul class="inc">
+      <li><b>Formazione</b><span>Per il personale, all'avvio.</span></li>
+      <li><b>Assistenza</b><span>Un riferimento diretto, quando serve.</span></li>
+      <li><b>Aggiornamenti a distanza</b><span>Il software si aggiorna da solo.</span></li>
+    </ul>
+  </div>
+  <div class="table reveal">
+    <h3 class="h3">In sintesi</h3>
+    <dl>
+      <div><dt>Classificazione</dt><dd>Dispositivo medico CE di Classe I, Reg. (UE) 2017/745</dd></div>
+      <div><dt>Parametri</dt><dd>Frequenza cardiaca, frequenza respiratoria, uscita e rientro dal letto, agitazione e movimenti bruschi</dd></div>
+      <div><dt>Tecnologia</dt><dd>Radar a onde millimetriche, senza contatto e senza telecamere</dd></div>
+      <div><dt>Avvisi</dt><dd>In tempo reale, con soglie configurabili</dd></div>
+      <div><dt>Installazione</dt><dd>A parete, sopra la testiera; alimentatore incluso</dd></div>
+      <div><dt>Collegamento</dt><dd>Wireless verso il gateway, anche attraverso le pareti; fino a 8 posti letto per gateway</dd></div>
+      <div><dt>Gateway</dt><dd>Rete Ethernet; alimentazione USB-C, PoE opzionale</dd></div>
+      <div><dt>Dati</dt><dd>Cartella clinica elettronica integrata, via webapp; integrazione su misura con sistemi di terze parti</dd></div>
+      <div><dt>Servizi</dt><dd>Formazione, assistenza, aggiornamenti software a distanza (OTA)</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- CONTATTI / RICHIESTA -->
+<section class="cta" id="contatti">
+  <div class="cta__in">
+    <div class="cta__copy">
+      <img class="cta__logo" src="assets/img/radarcare-logo-bianco.svg" alt="RadarCare" width="190" height="56">
+      <h2 class="h1">Richiedi un preventivo.</h2>
+      <p class="lead lead--inv">Ti aiutiamo a dimensionare l'impianto sulla tua struttura. Compila la richiesta: un nostro referente ti ricontatta.</p>
+      <ul class="cta__flow">
+        <li><span>1</span>Invii la richiesta</li>
+        <li><span>2</span>Ti ricontattiamo per un sopralluogo</li>
+        <li><span>3</span>Ricevi il preventivo su misura</li>
+      </ul>
+      <p class="cta__alt">Preferisci parlarne a voce?<br><a href="tel:+393921841021">+39 392 184 1021</a> · <a href="mailto:info@cmtecnologie.it">info@cmtecnologie.it</a></p>
+    </div>
+
+    <form class="lead-form" id="leadForm" novalidate>
+      <div class="lf__head"><b>Nuova richiesta</b><span id="lfId">RC-0000</span></div>
+      <div class="lf__grid">
+        <label class="f f--wide"><span>Struttura *</span><input name="struttura" required autocomplete="organization" placeholder="Es. Casa di cura San Luca"></label>
+        <label class="f"><span>Tipologia</span>
+          <select name="tipologia"><option>Ospedale o clinica</option><option>RSA o casa di riposo</option><option>Centro di riabilitazione</option><option>Hospice</option><option>Altro</option></select></label>
+        <label class="f"><span>Posti letto da monitorare</span>
+          <select name="letti"><option>Fino a 8</option><option>9–24</option><option>25–64</option><option>Oltre 64</option><option>Da definire</option></select></label>
+        <label class="f"><span>Referente *</span><input name="referente" required autocomplete="name" placeholder="Nome e cognome"></label>
+        <label class="f"><span>Ruolo</span><input name="ruolo" autocomplete="organization-title" placeholder="Es. Direttore sanitario"></label>
+        <label class="f"><span>Email *</span><input name="email" type="email" required autocomplete="email" placeholder="nome@struttura.it"></label>
+        <label class="f"><span>Telefono</span><input name="telefono" type="tel" autocomplete="tel" placeholder="+39"></label>
+        <label class="f"><span>Città</span><input name="citta" autocomplete="address-level2"></label>
+        <label class="f"><span>Come preferisci essere ricontattato</span>
+          <select name="contatto"><option>Telefono</option><option>Email</option><option>Indifferente</option></select></label>
+        <label class="f f--wide"><span>Messaggio</span><textarea name="messaggio" rows="3" placeholder="Reparti, tempi, esigenze di integrazione…"></textarea></label>
+      </div>
+      <label class="chk"><input type="checkbox" name="prof" required><span>Dichiaro di essere un operatore sanitario o di agire per conto di una struttura sanitaria. *</span></label>
+      <label class="chk"><input type="checkbox" name="privacy" required><span>Ho letto l'<a href="privacy.html" target="_blank">informativa privacy</a>. *</span></label>
+      <p class="lf__err" id="lfErr" role="alert"></p>
+      <button class="btn lf__btn" type="submit">Invia richiesta</button>
+      <p class="lf__note">L'invio apre il tuo programma di posta con la richiesta già compilata: il sito non registra alcun dato.</p>
+
+      <div class="lf__done" id="lfDone" hidden>
+        <div class="lf__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+        <b>Richiesta <span id="lfId2">RC-0000</span> pronta</b>
+        <p>Si è aperto il tuo programma di posta con tutti i dati: premi <strong>Invia</strong> per inoltrarla. Ti ricontatteremo al più presto.</p>
+        <ol class="lf__steps"><li class="ok">Richiesta compilata</li><li class="cur">Invio dalla tua email</li><li>Presa in carico</li><li>Preventivo</li></ol>
+        <button class="btn btn--ghost btn--sm" type="button" id="lfAgain">Nuova richiesta</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- AREA CLIENTI -->
+<section class="client" id="area-clienti">
+  <div class="client__head reveal">
+    <p class="eyebrow">Area clienti</p>
+    <h2 class="h2">Il tuo impianto,<br>sempre sotto controllo.</h2>
+    <p class="lead lead--sm">Per le strutture che hanno scelto RadarCare: impianti, assistenza, aggiornamenti e documenti in un unico portale.</p>
+  </div>
+  <div class="client__grid">
+    <div class="portal reveal" aria-label="Anteprima illustrativa del portale clienti">
+      <aside class="portal__side">
+        <div class="portal__brand"><img src="assets/img/favicon.svg" alt="" width="22" height="22">Area clienti</div>
+        <nav><span class="on">Panoramica</span><span>Impianti</span><span>Assistenza</span><span>Aggiornamenti</span><span>Documenti</span><span>Formazione</span></nav>
+      </aside>
+      <div class="portal__main">
+        <div class="portal__top"><div><small>Struttura</small><b>Casa di cura · Sede principale</b></div><span class="pill"><span class="dot"></span>Tutti i dispositivi online</span></div>
+        <div class="portal__kpi">
+          <div><small>Sensori attivi</small><b>24</b></div>
+          <div><small>Gateway</small><b>3</b></div>
+          <div><small>Reparti</small><b>3</b></div>
+          <div><small>Software</small><b>Aggiornato</b></div>
+        </div>
+        <div class="portal__cols">
+          <div class="pcard">
+            <h4>Impianti</h4>
+            <div class="prow"><span>Medicina · Piano 1</span><em>8 sensori</em><s class="ok"></s></div>
+            <div class="prow"><span>Geriatria · Piano 2</span><em>8 sensori</em><s class="ok"></s></div>
+            <div class="prow"><span>Riabilitazione · Piano 3</span><em>8 sensori</em><s class="ok"></s></div>
+          </div>
+          <div class="pcard">
+            <h4>Assistenza</h4>
+            <div class="prow"><span>#1042 Formazione nuovo personale</span><em class="tag tag--ok">Completata</em></div>
+            <div class="prow"><span>#1057 Nuovo posto letto, Piano 2</span><em class="tag">In lavorazione</em></div>
+            <div class="prow"><span>#1061 Esportazione storico</span><em class="tag tag--new">Aperta</em></div>
+          </div>
+          <div class="pcard">
+            <h4>Aggiornamenti</h4>
+            <div class="prow"><span>Software sensori</span><em>Installato in automatico</em></div>
+            <div class="prow"><span>Webapp</span><em>Nuove viste reparto</em></div>
+          </div>
+          <div class="pcard">
+            <h4>Documenti</h4>
+            <div class="prow"><span>Istruzioni per l'uso</span><em>PDF</em></div>
+            <div class="prow"><span>Dichiarazione di conformità</span><em>PDF</em></div>
+            <div class="prow"><span>Verbale di installazione</span><em>PDF</em></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form class="login reveal" id="loginForm" novalidate>
+      <b class="h3">Accedi</b>
+      <p class="body">Le credenziali vengono consegnate alla struttura all'attivazione dell'impianto.</p>
+      <label class="f"><span>Email</span><input type="email" name="u" autocomplete="username" placeholder="nome@struttura.it"></label>
+      <label class="f"><span>Password</span><input type="password" name="p" autocomplete="current-password"></label>
+      <button class="btn" type="submit">Accedi all'area clienti</button>
+      <p class="login__msg" id="loginMsg" role="status" hidden>L'Area clienti è riservata alle strutture con un impianto RadarCare attivo. Se non hai ancora le credenziali o le hai smarrite, scrivi a <a href="mailto:info@cmtecnologie.it?subject=Credenziali%20Area%20clienti%20RadarCare">info@cmtecnologie.it</a>.</p>
+      <a class="login__link" href="mailto:info@cmtecnologie.it?subject=Credenziali%20Area%20clienti%20RadarCare">Password dimenticata?</a>
+    </form>
+  </div>
+  <p class="fine client__fine">Anteprima illustrativa con dati di esempio: contenuti e funzioni del portale possono differire.</p>
+</section>
+
+<!-- presentation arrows -->
+<nav class="pager" aria-label="Avanza per tappe">
+  <button type="button" id="pgUp" aria-label="Tappa precedente"><svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg></button>
+  <span id="pgN" aria-live="polite">1/14</span>
+  <button type="button" id="pgDn" aria-label="Tappa successiva"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+</nav>
+
+</main>
+
+<footer class="foot">
+  <div class="foot__top">
+    <a href="https://www.cmtecnologie.it" target="_blank" rel="noopener" class="foot__cm" aria-label="CMTECNOLOGIE, sito aziendale"><img src="assets/img/cmtecnologie.png" alt="CMTECNOLOGIE" width="130" height="24"></a>
+    <p><b>CMTECNOLOGIE S.R.L.</b> · Sede legale: Viale Guglielmo Marconi 34, 84013 Cava de' Tirreni (SA) · P.IVA 06448850658<br><a href="mailto:info@cmtecnologie.it">info@cmtecnologie.it</a> · <a href="tel:+393921841021">+39 392 184 1021</a> · <a href="#area-clienti">Area clienti</a> · <a href="privacy.html">Privacy e cookie</a></p>
+  </div>
+  <p class="legal"><b>Note legali.</b> Informazione riservata esclusivamente agli operatori sanitari e alle strutture sanitarie; non destinata al pubblico. RadarCare è un dispositivo medico CE di Classe I ai sensi del Regolamento (UE) 2017/745, fabbricato da CMTECNOLOGIE S.R.L. Prima dell'uso leggere attentamente le istruzioni per l'uso e le avvertenze. RadarCare è uno strumento di supporto al monitoraggio e non sostituisce la valutazione clinica né la sorveglianza del personale sanitario. Le immagini, i modelli 3D, le animazioni e le interfacce sono a solo scopo illustrativo: il prodotto reale può differire per aspetto, colori e dettagli. La presente pagina costituisce un'anteprima del prodotto: le funzionalità descritte possono differire da quelle effettivamente implementate e disponibili, che dipendono anche dalla configurazione e dall'integrazione con i sistemi della struttura. Caratteristiche e specifiche possono essere modificate senza preavviso. RadarCare™ e il logo RadarCare sono marchi di CMTECNOLOGIE S.R.L.; gli altri marchi appartengono ai rispettivi titolari. © 2026 CMTECNOLOGIE S.R.L. Tutti i diritti riservati.</p>
+</footer>
+
+<script src="vendor/lenis.min.js"></script>
+<script type="module" src="main.js"></script>
+</body>
+</html>

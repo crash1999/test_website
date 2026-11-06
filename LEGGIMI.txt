@@ -1,0 +1,9 @@
+RadarCare – sito statico per GitHub Pages
+=========================================
+1. Copia tutti i file di questa cartella nella radice del repository (ramo usato da GitHub Pages).
+2. Il file CNAME contiene già il dominio "radarcare.it": in Settings > Pages imposta lo stesso dominio
+   personalizzato e attiva "Enforce HTTPS". Sul DNS del dominio punta i record A/AAAA (o CNAME per www)
+   agli indirizzi indicati nella documentazione di GitHub Pages.
+3. Il file .nojekyll evita l'elaborazione Jekyll.
+Tutte le risorse (font, librerie, modelli 3D) sono locali: nessun cookie e nessuna richiesta a terzi.
+Contenuti: index.html (pagina), privacy.html (informativa), styles.css, main.js, assets/, vendor/.
